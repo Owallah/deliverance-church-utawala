@@ -6,16 +6,16 @@
   
   :root {
     /* Color Scheme */
-    --primary-color: #1a365d;
-    --secondary-color: #2d5aa0;
-    --accent-color: #ffd700;
-    --text-color: #2d3748;
-    --text-light: #4a5568;
+    --primary-color: #5E2E2D;
+    --secondary-color: #542304;
+    --accent-color: #C45C04;
+    --text-color: #1B0F0E;
+    --text-light: #1b0f0ebd;
     --white: #ffffff;
-    --light-bg: #f7fafc;
-    --gray-100: #f7fafc;
-    --gray-200: #edf2f7;
-    --gray-300: #e2e8f0;
+    --light-bg: #F7EEF0;
+    --gray-100: #bfb0b7a1;
+    --gray-200: #bfb0b7bb;
+    --gray-300: #BFB0B7;
     --success-color: #38a169;
     
     /* Fonts */

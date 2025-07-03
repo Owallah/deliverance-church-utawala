@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import '../styles/Header.css'
+import Logo from '../../public/logo.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,8 +31,12 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-text">Deliverane Church</span>
+            <img className="logo-pic" src={Logo} alt="" />
+            <div className="logo-content">
+              <span className="logo-text">Deliverane Church</span>
             <span className="logo-subtitle">Utawala</span>
+            </div>
+            
           </div>
           
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
