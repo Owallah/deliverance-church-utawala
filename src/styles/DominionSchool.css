@@ -1,0 +1,277 @@
+.dominion-center-section {
+    padding: var(--section-padding);
+    background: var(--white);
+  }
+  
+  .dominion-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dominion-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .dominion-header p:last-child {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+  }
+  
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .program-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  }
+  
+  .program-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .program-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  
+  .age-group {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .program-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+  
+  .program-features h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .program-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .program-features li {
+    padding: 0.25rem 0;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .program-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+  }
+  
+  .achievements-section {
+    margin-bottom: 4rem;
+  }
+  
+  .achievements-section h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem 0;
+    background: var(--light-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .achievement-item {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .achievement-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  
+  .achievement-label {
+    color: var(--text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+  
+  .admission-cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+  }
+  
+  .cta-content h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-actions .btn-primary {
+    background: var(--accent-color);
+    color: var(--primary-color);
+  }
+  
+  .cta-actions .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+  }
+  
+  .cta-actions .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .programs-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .achievements-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 2rem 1rem;
+    }
+    
+    .achievement-number {
+      font-size: 2.5rem;
+    }
+    
+    .admission-cta {
+      padding: 3rem 1.5rem;
+    }
+    
+    .cta-content h3 {
+      font-size: 1.6rem;
+    }
+    
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-actions .btn {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dominion-header {
+      margin-bottom: 3rem;
+    }
+    
+    .program-card {
+      padding: 1.5rem;
+    }
+    
+    .achievements-grid {
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+    }
+    
+    .achievement-number {
+      font-size: 2rem;
+    }
+    
+    .admission-cta {
+      padding: 2rem 1rem;
+    }
+    
+    .cta-content h3 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  /* Animation delays */
+  .program-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .program-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .program-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .achievement-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .achievement-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .achievement-item:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .achievement-item:nth-child(4) {
+    animation-delay: 0.4s;
+  }

@@ -1,0 +1,237 @@
+.departments-section {
+    padding: var(--section-padding);
+    background: var(--light-bg);
+  }
+  
+  .departments-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .departments-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .departments-header p:last-child {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+  }
+  
+  .departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .department-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .department-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  }
+  
+  .department-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .department-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  
+  .department-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .leader {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .meeting-time {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  
+  .department-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+  
+  .department-activities h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .department-activities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .department-activities li {
+    padding: 0.25rem 0;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .department-activities li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .ministry-cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-actions .btn-primary {
+    background: var(--accent-color);
+    color: var(--primary-color);
+  }
+  
+  .cta-actions .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+  }
+  
+  .cta-actions .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .departments-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .ministry-cta {
+      padding: 3rem 1.5rem;
+    }
+    
+    .cta-content h3 {
+      font-size: 1.6rem;
+    }
+    
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-actions .btn {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .departments-header {
+      margin-bottom: 3rem;
+    }
+    
+    .department-card {
+      padding: 1.5rem;
+    }
+    
+    .departments-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .ministry-cta {
+      padding: 2rem 1rem;
+    }
+    
+    .cta-content h3 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  /* Animation delays */
+  .department-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .department-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .department-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .department-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .department-card:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .department-card:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  
+  .department-card:nth-child(7) {
+    animation-delay: 0.7s;
+  }

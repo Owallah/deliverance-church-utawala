@@ -1,0 +1,269 @@
+.about-section {
+    padding: var(--section-padding);
+    background: var(--white);
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .about-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .mission, .vision {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  }
+  
+  .vision::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  }
+  
+  .mission h3, .vision h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .church-history {
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .church-history::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--accent-color));
+  }
+  
+  .church-history h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .church-history p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+  
+  .core-values h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .value-item {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: var(--light-bg);
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+  }
+  
+  .value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: var(--white);
+  }
+  
+  .value-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .value-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .value-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+  }
+  
+  .about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .about-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .image-overlay p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 968px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .about-image {
+      order: -1;
+    }
+    
+    .about-image img {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mission-vision {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .value-item {
+      padding: 1.25rem;
+    }
+    
+    .about-image img {
+      height: 250px;
+    }
+    
+    .image-overlay {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-header {
+      margin-bottom: 2rem;
+    }
+    
+    .mission-vision {
+      margin-bottom: 2rem;
+    }
+    
+    .church-history {
+      margin-bottom: 2rem;
+    }
+    
+    .value-item {
+      padding: 1rem;
+    }
+    
+    .value-icon {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Animation delays */
+  .about-text .animate-fade-in-up:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .about-text .animate-fade-in-up:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .mission.animate-fade-in-up {
+    animation-delay: 0.3s;
+  }
+  
+  .vision.animate-fade-in-up {
+    animation-delay: 0.4s;
+  }
+  
+  .church-history.animate-fade-in-up {
+    animation-delay: 0.5s;
+  }
+  
+  .value-item:nth-child(1) {
+    animation-delay: 0.6s;
+  }
+  
+  .value-item:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+  
+  .value-item:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+  
+  .value-item:nth-child(4) {
+    animation-delay: 0.9s;
+  }

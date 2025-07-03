@@ -1,0 +1,347 @@
+.sermons-section {
+    padding: var(--section-padding);
+    background: var(--light-bg);
+  }
+  
+  .sermons-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sermons-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .sermons-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+  }
+  
+  .sermons-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    padding: 12px 24px;
+    border: 2px solid var(--gray-300);
+    background: var(--white);
+    color: var(--text-color);
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tab:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+  }
+  
+  .tab.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  .sermons-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Latest Message Styles */
+  .message-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-thumbnail {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .message-thumbnail img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .message-thumbnail:hover img {
+    transform: scale(1.05);
+  }
+  
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .play-button:hover {
+    background: var(--white);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .message-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .message-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .message-meta span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    background: var(--gray-200);
+    border-radius: 20px;
+  }
+  
+  .scripture-reference {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+  }
+  
+  .message-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Current Series Styles */
+  .series-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .series-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .series-progress {
+    margin-top: 1.5rem;
+  }
+  
+  .series-progress span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--gray-300);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+  }
+  
+  .series-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .series-message {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .series-message.available {
+    border-left: 4px solid var(--success-color);
+  }
+  
+  .series-message.upcoming {
+    opacity: 0.7;
+    border-left: 4px solid var(--gray-300);
+  }
+  
+  .series-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+  
+  .message-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  
+  .series-message.available .message-number {
+    background: var(--success-color);
+  }
+  
+  .message-details {
+    flex: 1;
+  }
+  
+  .message-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
+  
+  .message-date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+  
+  .btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  /* Series Archive Styles */
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .archive-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .archive-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+  }
+  
+  .archive-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .archive-meta span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    background: var(--gray-200);
+    border-radius: 20px;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .sermons-tabs {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .tab {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .message-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .message-thumbnail {
+      order: -1;
+    }
+    
+    .message-thumbnail img {
+      height: 250px;
+    }
+    
+    .message-actions {
+      flex-direction: column;
+    }
+    
+    .message-actions .btn {
+      width: 100%;
+    }
+    
+    .series-message {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .archive-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sermons-header {
+      margin-bottom: 2rem;
+    }
+    
+    .sermons-tabs {
+      margin-bottom: 2rem;
+    }
+    
+    .message-card {
+      padding: 1.5rem;
+    }
+    
+    .series-message {
+      padding: 1rem;
+    }
+    
+    .archive-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  
