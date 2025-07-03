@@ -107,6 +107,10 @@
     background: var(--white);
     transform: translate(-50%, -50%) scale(1.1);
   }
+
+  .play-button a{
+    text-decoration: none;
+  }
   
   .message-info h3 {
     color: var(--primary-color);
