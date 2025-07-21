@@ -70,6 +70,11 @@
     margin-bottom: 1rem;
     color: var(--text-light);
   }
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+  }
   
   /* Decorative text using Tangerine font */
   .decorative-text {

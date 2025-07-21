@@ -1,4 +1,4 @@
-import { achievements, facilities } from '../assets/data'
+import { facilities } from '../assets/data'
 import '../styles/DominionSchool.css'
 const DominionSchool = () => {
   
@@ -32,18 +32,6 @@ const DominionSchool = () => {
               <button className="btn btn-secondary">Learn More</button>
             </div>
           ))}
-        </div>
-
-        <div className="achievements-section">
-          <h3 className="animate-fade-in-up">Our Achievements</h3>
-          <div className="achievements-grid">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="achievement-item animate-fade-in-up">
-                <div className="achievement-number">{achievement.number}</div>
-                <div className="achievement-label">{achievement.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="admission-cta card animate-fade-in-up">

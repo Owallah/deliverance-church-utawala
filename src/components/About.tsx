@@ -1,4 +1,5 @@
 import "../styles/About.css";
+import Church from "../assets/images/church.png"
 
 const About = () => {
   return (
@@ -62,7 +63,7 @@ const About = () => {
 
           <div className="about-image animate-slide-in-right">
             <img
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=800&fit=crop"
+              src={Church}
               alt="Deliverane Church Utawala Building"
             />
             <div className="image-overlay">

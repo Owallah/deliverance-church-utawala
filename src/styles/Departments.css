@@ -120,14 +120,14 @@
     margin: 0 auto;
   }
   
-  .cta-content h3 {
-    color: var(--white);
+  .ministry-cta-content h3 {
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 2rem;
   }
   
-  .cta-content p {
-    color: rgba(255, 255, 255, 0.9);
+  .ministry-cta-content p {
+    color: var(--secondary-color);
     margin-bottom: 2rem;
     font-size: 1.1rem;
     max-width: 500px;

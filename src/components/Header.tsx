@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import '../styles/Header.css'
-import Logo from '../../public/logo.png'
+import Logo from '/logo.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +45,7 @@ const Header = () => {
               <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
               <li><a href="#sermons" onClick={() => scrollToSection('sermons')}>Sermons</a></li>
               <li><a href="#leadership" onClick={() => scrollToSection('leadership')}>Leadership</a></li>
-              <li><a href="#school" onClick={() => scrollToSection('school')}>Church School</a></li>
+              <li><a href="#dominion-center" onClick={() => scrollToSection('school')}>Dominion Center</a></li>
               <li><a href="#giving" onClick={() => scrollToSection('giving')}>Giving</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
             </ul>

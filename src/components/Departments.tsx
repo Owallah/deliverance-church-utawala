@@ -19,7 +19,6 @@ const Departments = () => {
               <div className="department-header">
                 <h3>{department.title}</h3>
                 <div className="department-meta">
-                  <span className="leader">Led by {department.leader}</span>
                   <span className="meeting-time">{department.meetingTime}</span>
                 </div>
               </div>
@@ -37,8 +36,8 @@ const Departments = () => {
           ))}
         </div>
 
-        <div className="ministry-cta animate-fade-in-up">
-          <div className="cta-content">
+        <div className="ministry-cta card animate-fade-in-up">
+          <div className="ministry-cta-content">
             <h3>Ready to Serve?</h3>
             <p>Every member has a role to play in God's kingdom. Find your place of service and make a difference in our community.</p>
             <div className="cta-actions">

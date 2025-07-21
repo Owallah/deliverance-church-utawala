@@ -1,68 +1,100 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../styles/Sermons.css";
-import { currentSeries, latestMessage, seriesArchive } from "../assets/data";
 import { VideoInfo } from "../assets/type";
+import { useQuery } from "@tanstack/react-query";
 
 const Sermons = () => {
   const [activeTab, setActiveTab] = useState("latest");
-  const [videoId, setVideoId] = useState(null);
-  const [videoInfo, setVideoInfo] = useState<VideoInfo | null>(null);
 
   console.log(import.meta.env);
 
   const CHANNEL_ID = import.meta.env.VITE_CHANNEL_ID;
   const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
-  console.log(CHANNEL_ID, " ", YOUTUBE_API_KEY);
+  const {
+    data: videos,
+    isLoading,
+    isError,
+    error,
+  } = useQuery<VideoInfo[], Error>({
+    queryKey: ["youtubeVideos", CHANNEL_ID],
+    queryFn: async () => {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`;
+      const res = await fetch(url);
 
-  useEffect(() => {
-    const fetchLatestVideo = async () => {
-      try {
-        const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`;
-        console.log("Fetching URL:", url);
-
-        const res = await fetch(url);
-
-        if (!res.ok) {
-          const errorData = await res.json();
-          throw new Error(errorData.error?.message || "Failed to fetch video");
-        }
-
-        const data = await res.json();
-
-        if (!data.items || data.items.length === 0) {
-          throw new Error("No videos found for this channel");
-        }
-
-        const latestVideo = data.items[0];
-
-        if (!latestVideo.id?.videoId) {
-          throw new Error("Video ID not found in response");
-        }
-
-        // Extract all relevant video information
-        const videoInfo = {
-          id: latestVideo.id.videoId,
-          title: latestVideo.snippet.title,
-          description: latestVideo.snippet.description,
-          thumbnail: latestVideo.snippet.thumbnails.high.url,
-          publishedAt: new Date(latestVideo.snippet.publishedAt),
-          channelTitle: latestVideo.snippet.channelTitle,
-        };
-
-        console.log("retrieved video info:", videoInfo);
-        setVideoInfo(videoInfo);
-        setVideoId(latestVideo.id.videoId);
-      } catch (err) {
-        const error = err as Error;
-        console.error("Failed to fetch video:", error.message);
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error?.message || "Failed to fetch videos");
       }
-    };
 
-    fetchLatestVideo();
-  }, [CHANNEL_ID, YOUTUBE_API_KEY]);
+      const data = await res.json();
 
-  console.log("video info:", videoInfo);
+      if (!data.items || data.items.length === 0) {
+        throw new Error("No videos found for this channel");
+      }
+
+      return data.items.map((item: any) => ({
+        id: item.id.videoId,
+        title: item.snippet.title,
+        description: item.snippet.description,
+        thumbnail: item.snippet.thumbnails.high.url,
+        publishedAt: new Date(item.snippet.publishedAt),
+        channelTitle: item.snippet.channelTitle,
+      }));
+    },
+    enabled: !!CHANNEL_ID && !!YOUTUBE_API_KEY
+  });
+
+  const latestVideo = videos?.[0];
+
+  // useEffect(() => {
+  //   const fetchLatestVideo = async () => {
+  //     try {
+  //       const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`;
+  //       console.log("Fetching URL:", url);
+
+  //       const res = await fetch(url);
+
+  //       if (!res.ok) {
+  //         const errorData = await res.json();
+  //         throw new Error(errorData.error?.message || "Failed to fetch video");
+  //       }
+
+  //       const data = await res.json();
+
+  //       if (!data.items || data.items.length === 0) {
+  //         throw new Error("No videos found for this channel");
+  //       }
+
+  //       const latestVideo = data.items[0];
+
+  //       if (!latestVideo.id?.videoId) {
+  //         throw new Error("Video ID not found in response");
+  //       }
+
+  //       // Extract all relevant video information
+  //       const fetchedVideos: VideoInfo[] = data.items.map((item: any) => ({
+  //         id: item.id.videoId,
+  //         title: item.snippet.title,
+  //         description: item.snippet.description,
+  //         thumbnail: item.snippet.thumbnails.high.url,
+  //         publishedAt: new Date(item.snippet.publishedAt),
+  //         channelTitle: item.snippet.channelTitle,
+  //       }));
+
+  //       setVideos(fetchedVideos);
+  //       if (fetchedVideos.length > 0) {
+  //         setVideoInfo(fetchedVideos[0]);
+  //         setVideoId(fetchedVideos[0].id);
+  //       }
+  //     } catch (err) {
+  //       const error = err as Error;
+  //       console.error("Failed to fetch video:", error.message);
+  //     }
+  //   };
+
+  //   fetchLatestVideo();
+  // }, [CHANNEL_ID, YOUTUBE_API_KEY]);
 
   return (
     <section id="sermons" className="sermons-section">
@@ -83,141 +115,69 @@ const Sermons = () => {
             Latest Message
           </button>
           <button
-            className={`tab ${activeTab === "series" ? "active" : ""}`}
-            onClick={() => setActiveTab("series")}
-          >
-            Current Series
-          </button>
-          <button
             className={`tab ${activeTab === "archive" ? "active" : ""}`}
             onClick={() => setActiveTab("archive")}
           >
-            Series Archive
+            Message Archive
           </button>
         </div>
 
         <div className="sermons-content">
-          {activeTab === "latest" && (
+          {isLoading && (
+            <div className="loading-message">Loading sermons...</div>
+          )}
+
+          {isError && (
+            <div className="error-message">
+              Error loading sermons: {error.message}
+            </div>
+          )}
+          {activeTab === "latest" && latestVideo && (
             <div className="latest-message animate-fade-in">
               <div className="message-card">
                 <div className="message-thumbnail">
-                  {videoInfo?.thumbnail ? (
-                    <img
-                      src={videoInfo?.thumbnail}
-                      alt={videoInfo?.title || "Latest sermon"}
-                    />
-                  ) : (
-                    <div className="thumbnail-placeholder">
-                      Loading thumbnail...
-                    </div>
-                  )}
+                  <img src={latestVideo.thumbnail} alt={latestVideo.title} />
                   <div className="play-button">
-                    {videoId && (
-                      <a
-                        href={`https://www.youtube.com/watch?v=${videoId}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="play-button"
-                      >
-                        ▶
-                      </a>
-                    )}
+                    <a
+                      href={`https://www.youtube.com/watch?v=${latestVideo.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="play-button"
+                    >
+                      ▶
+                    </a>
                   </div>
                 </div>
                 <div className="message-info">
-                  <h3>{videoInfo?.title || "Latest sermon"}</h3>
+                  <h3>{latestVideo.title}</h3>
                   <div className="message-meta">
+                    <span>{latestVideo.channelTitle}</span>
                     <span>
-                      {videoInfo?.channelTitle || "Deliverance Church Utawala"}
-                    </span>
-                    <span>
-                      {videoInfo?.publishedAt
-                        ? new Date(videoInfo?.publishedAt).toLocaleDateString(
-                            "en-US",
-                            {
-                              weekday: "long",
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            }
-                          )
-                        : "Loading date..."}
+                      {latestVideo.publishedAt.toLocaleDateString("en-US", {
+                        weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
                     </span>
                     <span>Watch on YouTube</span>
                   </div>
                   <div className="scripture-reference">
                     <strong>Scripture: </strong>
-                    {latestMessage.scripture}
+                    Various Scripture
                   </div>
-                  <p>{videoInfo?.description || "Loading description..."}</p>
+                  <p>{latestVideo.description}</p>
                   <div className="message-actions">
                     <a
-                      href={`https://www.youtube.com/watch?v=${videoId}`}
+                      href={`https://www.youtube.com/watch?v=${latestVideo.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-primary"
                     >
                       Watch Now
                     </a>
-                    <button className="btn btn-secondary">
-                      Download Audio
-                    </button>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "series" && (
-            <div className="current-series animate-fade-in">
-              <div className="series-header">
-                <h3>{currentSeries.title}</h3>
-                <p>{currentSeries.description}</p>
-                <div className="series-progress">
-                  <span>
-                    Week {currentSeries.currentWeek} of{" "}
-                    {currentSeries.totalMessages}
-                  </span>
-                  <div className="progress-bar">
-                    <div
-                      className="progress-fill"
-                      style={{
-                        width: `${
-                          (currentSeries.currentWeek /
-                            currentSeries.totalMessages) *
-                          100
-                        }%`,
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div className="series-messages">
-                {currentSeries.messages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`series-message ${
-                      message.week <= currentSeries.currentWeek
-                        ? "available"
-                        : "upcoming"
-                    }`}
-                  >
-                    <div className="message-number">
-                      {message.week <= currentSeries.currentWeek
-                        ? "✓"
-                        : message.week}
-                    </div>
-                    <div className="message-details">
-                      <h4>{message.title}</h4>
-                      <span className="message-date">{message.date}</span>
-                    </div>
-                    {message.week <= currentSeries.currentWeek && (
-                      <button className="btn btn-secondary btn-small">
-                        Listen
-                      </button>
-                    )}
-                  </div>
-                ))}
               </div>
             </div>
           )}
@@ -225,16 +185,120 @@ const Sermons = () => {
           {activeTab === "archive" && (
             <div className="series-archive animate-fade-in">
               <div className="archive-grid">
-                {seriesArchive.map((series, index) => (
-                  <div key={index} className="archive-card card">
-                    <h4>{series.title}</h4>
-                    <p>{series.description}</p>
-                    <div className="archive-meta">
-                      <span>{series.messages} messages</span>
-                      <span>{series.year}</span>
+                {videos?.map((video) => (
+                  <div key={video.id} className="archive-video-card">
+                    <div className="message-thumbnail">
+                      <img src={video.thumbnail} alt={video.title} />
+                      <a
+                        href={`https://www.youtube.com/watch?v=${video.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="play-button"
+                      >
+                        ▶
+                      </a>
                     </div>
-                    <button className="btn btn-secondary">View Series</button>
+                    <div className="message-info">
+                      <h3>{video.title}</h3>
+                      <div className="message-meta">
+                        <span>{video.channelTitle}</span>
+                        <span>
+                          {video.publishedAt.toLocaleDateString("en-US", {
+                            weekday: "long",
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </span>
+                      </div>
+                      <p className="video-description">
+                        {video.description.length > 100
+                          ? `${video.description.substring(0, 100)}...`
+                          : video.description}
+                      </p>
+                      <div className="message-actions">
+                        <a
+                          href={`https://www.youtube.com/watch?v=${video.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary"
+                        >
+                          Watch Now
+                        </a>
+                      </div>
+                    </div>
                   </div>
+
+                  //   <div
+                  //     key={video.id}
+                  //     className="latest-message animate-fade-in"
+                  //   >
+                  //     <div className="message-card">
+                  //       <div className="message-thumbnail">
+                  //         {video?.thumbnail ? (
+                  //           <img
+                  //             src={video?.thumbnail}
+                  //             alt={video?.title || "Latest sermon"}
+                  //           />
+                  //         ) : (
+                  //           <div className="thumbnail-placeholder">
+                  //             Loading thumbnail...
+                  //           </div>
+                  //         )}
+                  //         <div className="play-button">
+                  //           {videoId && (
+                  //             <a
+                  //               href={`https://www.youtube.com/watch?v=${video.id}`}
+                  //               target="_blank"
+                  //               rel="noopener noreferrer"
+                  //               className="play-button"
+                  //             >
+                  //               ▶
+                  //             </a>
+                  //           )}
+                  //         </div>
+                  //       </div>
+                  //       <div className="message-info">
+                  //         <h3>{video?.title || "Sermon"}</h3>
+                  //         <div className="message-meta">
+                  //           <span>
+                  //             {video?.channelTitle ||
+                  //               "Deliverance Church Utawala"}
+                  //           </span>
+                  //           <span>
+                  //             {video?.publishedAt
+                  //               ? new Date(
+                  //                   video?.publishedAt
+                  //                 ).toLocaleDateString("en-US", {
+                  //                   weekday: "long",
+                  //                   year: "numeric",
+                  //                   month: "long",
+                  //                   day: "numeric",
+                  //                 })
+                  //               : "Loading date..."}
+                  //           </span>
+                  //           <span>Watch on YouTube</span>
+                  //         </div>
+                  //         <div className="scripture-reference">
+                  //           <strong>Scripture: </strong>
+                  //           Various Scripture
+                  //         </div>
+                  //         <p>
+                  //           {video?.description || "Loading description..."}
+                  //         </p>
+                  //         <div className="message-actions">
+                  //           <a
+                  //             href={`https://www.youtube.com/watch?v=${video.id}`}
+                  //             target="_blank"
+                  //             rel="noopener noreferrer"
+                  //             className="btn btn-primary"
+                  //           >
+                  //             Watch Now
+                  //           </a>
+                  //         </div>
+                  //       </div>
+                  //     </div>
+                  //   </div>
                 ))}
               </div>
             </div>

@@ -146,14 +146,14 @@
     border: none;
   }
   
-  .cta-content h3 {
-    color: var(--white);
+  .admission-cta .cta-content h3 {
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 2rem;
   }
   
   .cta-content p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--secondary-color);
     margin-bottom: 2rem;
     font-size: 1.1rem;
     max-width: 500px;
@@ -170,13 +170,13 @@
   
   .cta-actions .btn-primary {
     background: var(--accent-color);
-    color: var(--primary-color);
+    color: var(--text-light);
   }
   
   .cta-actions .btn-secondary {
     background: transparent;
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
   }
   
   .cta-actions .btn-secondary:hover {

@@ -38,55 +38,6 @@ const Giving = () => {
               </div>
             </div>
 
-            {/* <form className="giving-form card" onSubmit={handleSubmit}>
-              <h3>Make Your Contribution</h3>
-              
-              <div className="form-group">
-                <label className="form-label">Contribution Type</label>
-                <select 
-                  className="form-select"
-                  value={givingType}
-                  onChange={(e) => setGivingType(e.target.value)}
-                >
-                  {givingOptions.map((option) => (
-                    <option key={option.id} value={option.id}>
-                      {option.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">Amount (KES)</label>
-                <input
-                  type="number"
-                  className="form-input"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  placeholder="Enter amount"
-                  min="1"
-                  required
-                />
-              </div>
-
-              <div className="quick-amounts">
-                <span>Quick amounts:</span>
-                {[500, 1000, 2000, 5000].map((quickAmount) => (
-                  <button
-                    key={quickAmount}
-                    type="button"
-                    className="quick-amount-btn"
-                    onClick={() => setAmount(quickAmount.toString())}
-                  >
-                    {quickAmount}
-                  </button>
-                ))}
-              </div>
-
-              <button type="submit" className="btn btn-primary">
-                Proceed to Payment
-              </button>
-            </form> */}
           </div>
 
           <div className="payment-methods">
@@ -136,7 +87,7 @@ const Giving = () => {
             allows us to minister effectively, care for those in need, and advance God's kingdom. 
             Every contribution, regardless of size, makes a meaningful difference in the lives we touch."
           </p>
-          <p className="signature">- Pastor John Mwangi</p>
+          <p className="signature">- Rev. Emmanuel Kokonyo</p>
         </div>
       </div>
     </section>

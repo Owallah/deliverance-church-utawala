@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
                 <div className="service-time">
                   <strong>Friday Ignite Service</strong>
-                  <span>6:30 PM - 8:00 PM</span>
+                  <span>6:30 PM - 8:00 PM</span>-
                 </div>
               </div>
             </div>
