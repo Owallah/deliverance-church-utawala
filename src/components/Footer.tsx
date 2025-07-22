@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <span className="logo-text">Deliverane Church</span>
+              <span className="logo-text">Deliverance Church</span>
               <span className="logo-subtitle">Utawala</span>
             </div>
             <p className="footer-description">

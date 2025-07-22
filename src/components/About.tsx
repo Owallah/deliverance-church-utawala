@@ -9,7 +9,7 @@ const About = () => {
           <div className="about-text">
             <div className="about-header">
               <h2 className="animate-fade-in-up">
-                About Deliverane Church Utawala
+                About Deliverance Church Utawala
               </h2>
               <p className="decorative-text animate-fade-in-up">
                 Rooted in Faith
