@@ -31,7 +31,7 @@ const Departments = () => {
                   ))}
                 </ul>
               </div>
-              <button className="btn btn-secondary">Join Ministry</button>
+              {/* <button className="btn btn-secondary">Join Ministry</button> */}
             </div>
           ))}
         </div>

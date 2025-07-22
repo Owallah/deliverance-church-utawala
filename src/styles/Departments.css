@@ -150,7 +150,7 @@
   .cta-actions .btn-secondary {
     background: transparent;
     color: var(--white);
-    border-color: var(--white);
+    border-color: var(--primary-color);
   }
   
   .cta-actions .btn-secondary:hover {

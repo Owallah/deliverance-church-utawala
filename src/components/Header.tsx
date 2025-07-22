@@ -33,7 +33,7 @@ const Header = () => {
           <div className="logo">
             <img className="logo-pic" src={Logo} alt="" />
             <div className="logo-content">
-              <span className="logo-text">Deliverane Church</span>
+              <span className="logo-text">Deliverance Church</span>
             <span className="logo-subtitle">Utawala</span>
             </div>
             
@@ -45,6 +45,7 @@ const Header = () => {
               <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
               <li><a href="#sermons" onClick={() => scrollToSection('sermons')}>Sermons</a></li>
               <li><a href="#leadership" onClick={() => scrollToSection('leadership')}>Leadership</a></li>
+              <li><a href="#departments" onClick={() => scrollToSection('departments')}>Departments</a></li>
               <li><a href="#dominion-center" onClick={() => scrollToSection('school')}>Dominion Center</a></li>
               <li><a href="#giving" onClick={() => scrollToSection('giving')}>Giving</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
