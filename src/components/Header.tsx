@@ -46,7 +46,7 @@ const Header = () => {
               <li><a href="#sermons" onClick={() => scrollToSection('sermons')}>Sermons</a></li>
               <li><a href="#leadership" onClick={() => scrollToSection('leadership')}>Leadership</a></li>
               <li><a href="#departments" onClick={() => scrollToSection('departments')}>Departments</a></li>
-              <li><a href="#dominion-center" onClick={() => scrollToSection('school')}>Dominion Center</a></li>
+              {/* <li><a href="#dominion-center" onClick={() => scrollToSection('school')}>Dominion Center</a></li> */}
               <li><a href="#giving" onClick={() => scrollToSection('giving')}>Giving</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
             </ul>
