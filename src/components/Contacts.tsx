@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "../styles/Contacts.css";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { FaTiktok } from "react-icons/fa";
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -107,19 +108,27 @@ const Contacts = () => {
               <h4>Follow Us</h4>
               <div className="social-grid">
                 <a href="#" className="social-link">
-                  <span><FacebookIcon /></span>
+                  <span>
+                    <FacebookIcon />
+                  </span>
                   <span>Facebook</span>
                 </a>
                 <a href="#" className="social-link">
-                  <span><InstagramIcon /></span>
+                  <span>
+                    <InstagramIcon />
+                  </span>
                   <span>Instagram</span>
                 </a>
                 <a href="#" className="social-link">
-                  <span>🐦</span>
-                  <span>Twitter</span>
+                  <span>
+                    <FaTiktok />
+                  </span>
+                  <span>TikTok</span>
                 </a>
                 <a href="#" className="social-link">
-                  <span><YouTubeIcon /></span>
+                  <span>
+                    <YouTubeIcon />
+                  </span>
                   <span>YouTube</span>
                 </a>
               </div>
@@ -223,13 +232,13 @@ const Contacts = () => {
         <div className="map-section">
           <h3 className="animate-fade-in-up">Find Us</h3>
           <div className="map-container animate-fade-in-up">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.816528663891!2d36.9678507!3d-1.2839817999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f6ca4e3c6c013%3A0x7757ca6d3233f28!2sDeliverance%20Church%20Utawala!5e0!3m2!1sen!2ske!4v1752144473332!5m2!1sen!2ske" 
-              width="100%" 
-              height="400" 
-              style={{border: 0}} 
-              allowFullScreen={true} 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.816528663891!2d36.9678507!3d-1.2839817999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f6ca4e3c6c013%3A0x7757ca6d3233f28!2sDeliverance%20Church%20Utawala!5e0!3m2!1sen!2ske!4v1752144473332!5m2!1sen!2ske"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Deliverance Church Utawala Location"
             />

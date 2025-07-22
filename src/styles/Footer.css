@@ -57,7 +57,7 @@
   .social-icon {
     width: 45px;
     height: 45px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.023);
     border-radius: 50%;
     display: flex;
     align-items: center;

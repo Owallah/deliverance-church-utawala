@@ -8,6 +8,7 @@
     position: relative;
     width: 100%;
     height: 100%;
+    background: var(--light-bg);
   }
   
   .hero-slide {
@@ -15,7 +16,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,12 +34,19 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
+    /* background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    linear-gradient(
       135deg,
-      rgba(138, 94, 104, 0.8) 0%,
-      rgba(190, 161, 174, 0.6) 50%,
-      rgba(191, 176, 183, 0.1) 100%
-    );
+      rgba(138, 94, 104, 0.854) 0%,
+      rgba(190, 161, 174, 0.618) 50%,
+      rgba(191, 176, 183, 0.261) 100%
+    ); */
+    background: linear-gradient(
+  135deg,
+  rgba(50, 30, 40, 0.9) 0%,
+  rgba(80, 50, 60, 0.7) 50%,
+  rgba(90, 80, 90, 0.5) 100%
+);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +100,7 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--primary-color);
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -106,13 +114,13 @@
   
   .hero-scroll-indicator {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--primary-color);
     font-size: 0.9rem;
     animation: bounce 2s infinite;
   }
