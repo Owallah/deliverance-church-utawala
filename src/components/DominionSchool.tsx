@@ -1,7 +1,6 @@
-import { facilities } from '../assets/data'
-import '../styles/DominionSchool.css'
+import { facilities } from "../assets/data";
+import "../styles/DominionSchool.css";
 const DominionSchool = () => {
-  
   return (
     <section id="dominion-center" className="dominion-center-section">
       <div className="container">
@@ -9,7 +8,8 @@ const DominionSchool = () => {
           <h2 className="animate-fade-in-up">Dominion Center</h2>
           <p className="decorative-text animate-fade-in-up">Kids School</p>
           <p className="animate-fade-in-up">
-            Providing quality Christian education where children learn, grow, and discover their God-given potential in a nurturing environment.
+            Providing quality Christian education where children learn, grow,
+            and discover their God-given potential in a nurturing environment.
           </p>
         </div>
 
@@ -37,7 +37,10 @@ const DominionSchool = () => {
         <div className="admission-cta card animate-fade-in-up">
           <div className="cta-content">
             <h3>Ready to Enroll Your Child?</h3>
-            <p>Join the Dominion Center family and give your child a foundation built on Christian values and academic excellence.</p>
+            <p>
+              Join the Dominion Center family and give your child a foundation
+              built on Christian values and academic excellence.
+            </p>
             <div className="cta-actions">
               <button className="btn btn-primary">Apply Now</button>
               <button className="btn btn-secondary">Schedule Visit</button>
@@ -46,7 +49,7 @@ const DominionSchool = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default DominionSchool
+export default DominionSchool;

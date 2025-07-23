@@ -9,7 +9,7 @@ const CoreValues = () => {
     <section className="features-section">
       <div className="container">
         <div className="features-header">
-          <h2 className="animate-fade-in-up">Why Choose Deliverance Church?</h2>
+          <h2 className="animate-fade-in-up">Values we stand by</h2>
           <p className="animate-fade-in-up">
             Discover what makes our church family special and how you can grow in your faith journey with us.
           </p>

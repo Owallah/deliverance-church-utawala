@@ -42,59 +42,10 @@ const Sermons = () => {
         channelTitle: item.snippet.channelTitle,
       }));
     },
-    enabled: !!CHANNEL_ID && !!YOUTUBE_API_KEY
+    enabled: !!CHANNEL_ID && !!YOUTUBE_API_KEY,
   });
 
   const latestVideo = videos?.[0];
-
-  // useEffect(() => {
-  //   const fetchLatestVideo = async () => {
-  //     try {
-  //       const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`;
-  //       console.log("Fetching URL:", url);
-
-  //       const res = await fetch(url);
-
-  //       if (!res.ok) {
-  //         const errorData = await res.json();
-  //         throw new Error(errorData.error?.message || "Failed to fetch video");
-  //       }
-
-  //       const data = await res.json();
-
-  //       if (!data.items || data.items.length === 0) {
-  //         throw new Error("No videos found for this channel");
-  //       }
-
-  //       const latestVideo = data.items[0];
-
-  //       if (!latestVideo.id?.videoId) {
-  //         throw new Error("Video ID not found in response");
-  //       }
-
-  //       // Extract all relevant video information
-  //       const fetchedVideos: VideoInfo[] = data.items.map((item: any) => ({
-  //         id: item.id.videoId,
-  //         title: item.snippet.title,
-  //         description: item.snippet.description,
-  //         thumbnail: item.snippet.thumbnails.high.url,
-  //         publishedAt: new Date(item.snippet.publishedAt),
-  //         channelTitle: item.snippet.channelTitle,
-  //       }));
-
-  //       setVideos(fetchedVideos);
-  //       if (fetchedVideos.length > 0) {
-  //         setVideoInfo(fetchedVideos[0]);
-  //         setVideoId(fetchedVideos[0].id);
-  //       }
-  //     } catch (err) {
-  //       const error = err as Error;
-  //       console.error("Failed to fetch video:", error.message);
-  //     }
-  //   };
-
-  //   fetchLatestVideo();
-  // }, [CHANNEL_ID, YOUTUBE_API_KEY]);
 
   return (
     <section id="sermons" className="sermons-section">
@@ -228,77 +179,6 @@ const Sermons = () => {
                       </div>
                     </div>
                   </div>
-
-                  //   <div
-                  //     key={video.id}
-                  //     className="latest-message animate-fade-in"
-                  //   >
-                  //     <div className="message-card">
-                  //       <div className="message-thumbnail">
-                  //         {video?.thumbnail ? (
-                  //           <img
-                  //             src={video?.thumbnail}
-                  //             alt={video?.title || "Latest sermon"}
-                  //           />
-                  //         ) : (
-                  //           <div className="thumbnail-placeholder">
-                  //             Loading thumbnail...
-                  //           </div>
-                  //         )}
-                  //         <div className="play-button">
-                  //           {videoId && (
-                  //             <a
-                  //               href={`https://www.youtube.com/watch?v=${video.id}`}
-                  //               target="_blank"
-                  //               rel="noopener noreferrer"
-                  //               className="play-button"
-                  //             >
-                  //               ▶
-                  //             </a>
-                  //           )}
-                  //         </div>
-                  //       </div>
-                  //       <div className="message-info">
-                  //         <h3>{video?.title || "Sermon"}</h3>
-                  //         <div className="message-meta">
-                  //           <span>
-                  //             {video?.channelTitle ||
-                  //               "Deliverance Church Utawala"}
-                  //           </span>
-                  //           <span>
-                  //             {video?.publishedAt
-                  //               ? new Date(
-                  //                   video?.publishedAt
-                  //                 ).toLocaleDateString("en-US", {
-                  //                   weekday: "long",
-                  //                   year: "numeric",
-                  //                   month: "long",
-                  //                   day: "numeric",
-                  //                 })
-                  //               : "Loading date..."}
-                  //           </span>
-                  //           <span>Watch on YouTube</span>
-                  //         </div>
-                  //         <div className="scripture-reference">
-                  //           <strong>Scripture: </strong>
-                  //           Various Scripture
-                  //         </div>
-                  //         <p>
-                  //           {video?.description || "Loading description..."}
-                  //         </p>
-                  //         <div className="message-actions">
-                  //           <a
-                  //             href={`https://www.youtube.com/watch?v=${video.id}`}
-                  //             target="_blank"
-                  //             rel="noopener noreferrer"
-                  //             className="btn btn-primary"
-                  //           >
-                  //             Watch Now
-                  //           </a>
-                  //         </div>
-                  //       </div>
-                  //     </div>
-                  //   </div>
                 ))}
               </div>
             </div>

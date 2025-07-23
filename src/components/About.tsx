@@ -20,7 +20,7 @@ const About = () => {
               <div className="mission card animate-fade-in-up">
                 <h3>Our Mission</h3>
                 <p>
-                  <i>"Our Mission To Equip Mankind For The Mission Of God."</i>
+                  <i>"To Equip Mankind For The Mission Of God."</i>
                 </p>
               </div>
 
@@ -38,7 +38,7 @@ const About = () => {
             <div className="church-history card animate-fade-in-up">
               <h3>Our Story</h3>
               <p>
-                Born on the 24th of Novemver, 2009, Deliverane Church Utawala
+                Born on the 24th of November, 2009, Deliverance Church Utawala
                 began as a small fellowship of believers under the leadership of
                 Pastor William Ouna committed to seeking God's presence and
                 sharing His love. Later on Reverend Emmanuel Kokonyo came in as

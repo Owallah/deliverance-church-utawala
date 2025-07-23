@@ -35,14 +35,14 @@ const Leadership = () => {
         </div>
 
         <div className="leadership-message card animate-fade-in-up">
-          <h3>A Message from Our Leadership</h3>
+          <h3>Message from Our Leadership</h3>
           <p>
             "We are honored to serve this wonderful congregation and community. Our leadership team is committed 
             to shepherding with integrity, teaching God's Word with clarity, and leading by example in love and service. 
             We believe that strong, Spirit-led leadership creates an environment where every person can grow in their 
             faith and discover their God-given purpose."
           </p>
-          <p className="signature">- The Leadership Team, Deliverane Church Utawala</p>
+          <p className="signature">- The Leadership Team, Deliverance Church Utawala</p>
         </div>
       </div>
     </section>
