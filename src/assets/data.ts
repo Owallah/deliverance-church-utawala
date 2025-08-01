@@ -12,7 +12,7 @@ export const slides = [
     {
       image: Church,
       title: 'Welcome to Deliverance Church Utawala',
-      subtitle: 'Experience God\'s Love',
+      subtitle: 'The Church of Choice',
       description: 'Join our community of believers in worship, fellowship, and spiritual growth. You are loved and welcomed here.',
       cta: 'Join Us This Sunday'
     },
