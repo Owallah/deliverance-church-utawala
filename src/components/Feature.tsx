@@ -1,20 +1,18 @@
-import { coreValues } from "../assets/data"
-import "../styles/CoreValues.css"
-
+import { coreValues } from "../assets/data";
+import "../styles/CoreValues.css";
 
 const CoreValues = () => {
-    
-      
   return (
     <section className="features-section">
       <div className="container">
         <div className="features-header">
           <h2 className="animate-fade-in-up">Values we stand by</h2>
           <p className="animate-fade-in-up">
-            Discover what makes our church family special and how you can grow in your faith journey with us.
+            Discover what makes our church family special and how you can grow
+            in your faith journey with us.
           </p>
         </div>
-        
+
         <div className="features-grid">
           {coreValues.map((value, index) => (
             <div key={index} className="feature-card animate-fade-in-up">
@@ -28,7 +26,7 @@ const CoreValues = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CoreValues
+export default CoreValues;

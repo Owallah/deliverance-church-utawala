@@ -5,8 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const Sermons = () => {
   const [activeTab, setActiveTab] = useState("latest");
-
-  console.log(import.meta.env);
+  const [currentPage, setCurrentPage] = useState(1);
+  const videosPerPage = 4;
 
   const CHANNEL_ID = import.meta.env.VITE_CHANNEL_ID;
   const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
@@ -44,6 +44,16 @@ const Sermons = () => {
     },
     enabled: !!CHANNEL_ID && !!YOUTUBE_API_KEY,
   });
+
+  const indexOfLastVideo = currentPage * videosPerPage;
+  const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
+  const currentVideos = videos?.slice(indexOfFirstVideo, indexOfLastVideo);
+  const totalPages = videos ? Math.ceil(videos.length / videosPerPage) : 0;
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const nextPage = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
   const latestVideo = videos?.[0];
 
@@ -136,7 +146,7 @@ const Sermons = () => {
           {activeTab === "archive" && (
             <div className="series-archive animate-fade-in">
               <div className="archive-grid">
-                {videos?.map((video) => (
+                {currentVideos?.map((video) => (
                   <div key={video.id} className="archive-video-card">
                     <div className="message-thumbnail">
                       <img src={video.thumbnail} alt={video.title} />
@@ -181,6 +191,40 @@ const Sermons = () => {
                   </div>
                 ))}
               </div>
+              {/* Pagination Controls */}
+              {videos && videos.length > videosPerPage && (
+                <div className="pagination">
+                  <button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className="pagination-button"
+                  >
+                    Previous
+                  </button>
+
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (number) => (
+                      <button
+                        key={number}
+                        onClick={() => paginate(number)}
+                        className={`pagination-number ${
+                          currentPage === number ? "active" : ""
+                        }`}
+                      >
+                        {number}
+                      </button>
+                    )
+                  )}
+
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages}
+                    className="pagination-button"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

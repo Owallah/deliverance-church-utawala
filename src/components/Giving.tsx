@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import "../styles/Giving.css"
-import { givingOptions, paymentMethods } from '../assets/data';
+import { useState } from "react";
+import "../styles/Giving.css";
+import { givingOptions, paymentMethods } from "../assets/data";
 
 const Giving = () => {
-    const [givingType, setGivingType] = useState('tithe');
-
-  
+  const [givingType, setGivingType] = useState("tithe");
 
   return (
     <section id="giving" className="giving-section">
@@ -14,8 +12,9 @@ const Giving = () => {
           <h2 className="animate-fade-in-up">Giving & Donations</h2>
           <p className="decorative-text animate-fade-in-up">Generous Hearts</p>
           <p className="animate-fade-in-up">
-            Your generosity enables us to fulfill our mission and serve our community. 
-            Thank you for being a faithful steward of God's blessings.
+            Your generosity enables us to fulfill our mission and serve our
+            community. Thank you for being a faithful steward of God's
+            blessings.
           </p>
         </div>
 
@@ -25,9 +24,11 @@ const Giving = () => {
               <h3>Choose Your Giving Type</h3>
               <div className="options-grid">
                 {givingOptions.map((option) => (
-                  <div 
+                  <div
                     key={option.id}
-                    className={`option-card ${givingType === option.id ? 'active' : ''}`}
+                    className={`option-card ${
+                      givingType === option.id ? "active" : ""
+                    }`}
                     onClick={() => setGivingType(option.id)}
                   >
                     <h4>{option.title}</h4>
@@ -37,7 +38,6 @@ const Giving = () => {
                 ))}
               </div>
             </div>
-
           </div>
 
           <div className="payment-methods">
@@ -60,22 +60,34 @@ const Giving = () => {
             <div className="impact-item animate-fade-in-up">
               <div className="impact-icon">🏠</div>
               <h4>Church Operations</h4>
-              <p>Supporting daily operations, utilities, and maintenance of our church facilities.</p>
+              <p>
+                Supporting daily operations, utilities, and maintenance of our
+                church facilities.
+              </p>
             </div>
             <div className="impact-item animate-fade-in-up">
               <div className="impact-icon">👨‍👩‍👧‍👦</div>
               <h4>Community Programs</h4>
-              <p>Funding various programs that serve families and individuals in our community.</p>
+              <p>
+                Funding various programs that serve families and individuals in
+                our community.
+              </p>
             </div>
             <div className="impact-item animate-fade-in-up">
               <div className="impact-icon">🌍</div>
               <h4>Mission Work</h4>
-              <p>Supporting local and international missions to spread the Gospel around the world.</p>
+              <p>
+                Supporting local and international missions to spread the Gospel
+                around the world.
+              </p>
             </div>
             <div className="impact-item animate-fade-in-up">
               <div className="impact-icon">📚</div>
               <h4>Education & Training</h4>
-              <p>Providing resources for Sunday school, youth programs, and leadership development.</p>
+              <p>
+                Providing resources for Sunday school, youth programs, and
+                leadership development.
+              </p>
             </div>
           </div>
         </div>
@@ -83,15 +95,17 @@ const Giving = () => {
         <div className="giving-testimony card animate-fade-in-up">
           <h3>A Heart of Gratitude</h3>
           <p>
-            "We are deeply grateful for the generous hearts in our congregation. Your faithful giving 
-            allows us to minister effectively, care for those in need, and advance God's kingdom. 
-            Every contribution, regardless of size, makes a meaningful difference in the lives we touch."
+            "We are deeply grateful for the generous hearts in our congregation.
+            Your faithful giving allows us to minister effectively, care for
+            those in need, and advance God's kingdom. Every contribution,
+            regardless of size, makes a meaningful difference in the lives we
+            touch."
           </p>
           <p className="signature">- Rev. Emmanuel Kokonyo</p>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Giving
+export default Giving;

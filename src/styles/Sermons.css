@@ -281,6 +281,41 @@
     background: var(--gray-200);
     border-radius: 20px;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+  
+  .pagination-button, .pagination-number {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: var(--primary-blue);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .pagination-button:hover:not(:disabled),
+  .pagination-number:hover:not(.active) {
+    background-color: #f1f1f1;
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-number.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+  }
   
   /* Mobile Styles */
   @media (max-width: 768px) {
