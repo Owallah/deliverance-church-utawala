@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const Sermons = () => {
   const [activeTab, setActiveTab] = useState("latest");
   const [currentPage, setCurrentPage] = useState(1);
-  const videosPerPage = 4;
+  const videosPerPage = 3;
 
   const CHANNEL_ID = import.meta.env.VITE_CHANNEL_ID;
   const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
